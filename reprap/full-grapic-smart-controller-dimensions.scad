@@ -18,7 +18,6 @@ mounting_holes = 3;
 
 module reprap_display () {
 
-    
     // Mounting holes
     translate([2.5, 19, 0]) { circle(d = mounting_holes, $fn=50); }
     translate([90.5, 19, 0]) { circle(d = mounting_holes, $fn=50); }
@@ -38,14 +37,16 @@ module reprap_display () {
     translate([83.5, 9, 0]) { circle(d = 12.6, $fn=50); }
 }
 
-// Overall PCB dimensions
-panel_x = 93;
-panel_y = 87;
 
 difference() {
     
-    // Body of the panel
-    square([panel_x,panel_y]);
+    // Overall PCB dimensions
+    pcb_x = 93;
+    pcb_y = 87;
 
+    // Body of the PCB
+    square([ pcb_x, pcb_y ]);
+
+    // Add cutouts for mounting and display
     reprap_display();
 }
