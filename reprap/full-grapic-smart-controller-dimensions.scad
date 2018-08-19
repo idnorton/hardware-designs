@@ -34,7 +34,7 @@ module reprap_display () {
     translate([50, 9, 0]) { circle(d = 3, $fn=50); }
 
     // Rotary encoder
-    translate([83.5, 9, 0]) { circle(d = 12.6, $fn=50); }
+    translate([83.5, 9, 0]) { circle(d = 7, $fn=50); }
 }
 
 
