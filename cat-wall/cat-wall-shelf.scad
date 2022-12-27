@@ -8,7 +8,7 @@ Licenced as Creative Commons Attribution Non Commercial 3.0
 See https://creativecommons.org/licenses/by-nc/3.0/
 
 Specifically you may not sell the design or products using the design.
-You're welcome to use the design to build these for your own cats :)
+You're welcome to use the design to build these for your own use :)
 
 */
 
