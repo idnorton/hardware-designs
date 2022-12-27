@@ -12,30 +12,32 @@ You're welcome to use the design to build things for your own use
 
 */
 
-d = 145;
+// Rounding for cylinders
+fn = 250;
+
+// Height of the lid lip
 h = 13.4;
 
+// Internal tapers
+id_top = 141.9;
+id_bottom = 142.8;
 
+// External tapers
+od_top = 145.9;
+od_bottom = 145.3;
 
-//difference() {
-    //union () {
-        //cube([body_x, body_y, body_z]);
-
-        // Top triangle
-        //translate([body_x/2, 0, 32]) {
-            //rotate([270,45,0]) {
-                //cube([body_x/2, body_x/2, body_y]);
-            //}
-        //}
-    //}
-    
+// Latch
+latch_h = 2.5;
+latch_d = od_top + 3;
+latch_top = od_top + 2;
+latch_bottom = od_bottom + 2;
 
 union () {        
     difference () {
         intersection () {
             // Sticking out lump
             translate([0, 0, 5]) {
-                cylinder(2.5, d=d+2.5, $fn=100);
+                cylinder(latch_h, d=latch_d, $fn=fn);
             }
             
             // Cube intersection
@@ -44,9 +46,9 @@ union () {
             }
         }
         
-        // Remove the center of the 
+        // Remove the center of the cylinder
         translate([0, 0, 5]) {
-            cylinder(2.5, d=d, $fn=100);
+            cylinder(latch_h, d1=id_top, d2=id_bottom, $fn=fn);
         }
     }
 
@@ -58,14 +60,14 @@ union () {
 
         // Match existing rim
         difference () {
-            cylinder(h,d=d, $fn=100);
-            cylinder(h,d=d-2, $fn=100);
+            cylinder(h-1, d1=od_bottom, d2=od_top, $fn=fn);
+            cylinder(h-1, d1=id_bottom, d2=id_top, $fn=fn);
         }
     }
 
     // Match existing rim
     difference () {
-        cylinder(h,d=d-2, $fn=100);
-        cylinder(h,d=d-4, $fn=100);
+        cylinder(h, d1=id_bottom, d2=id_top, $fn=fn);
+        cylinder(h, d1=id_bottom - 2, d2=id_top - 2, $fn=fn);
     }
 }
