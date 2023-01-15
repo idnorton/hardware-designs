@@ -19,7 +19,7 @@ height = 10;
 
 mounting_bolt = 7;
 mounting_boss = 30;
-mounting_hole_offset = 100;
+mounting_hole_offset = 103;
 
 module insert(diameter, thickness, boss, offset) {
     // Insert part
