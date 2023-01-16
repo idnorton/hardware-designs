@@ -55,8 +55,10 @@ difference() {
                 center=false
             );
         }
-    }    
+    }
+
+    // Trim the pointy bits to account for paint buildup
+    translate([18, 0, 0]) {
+      cube(size = [30,10,40], center = false);
+    }
 }
-
-
-    
