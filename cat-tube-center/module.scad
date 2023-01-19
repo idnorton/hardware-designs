@@ -13,21 +13,37 @@ You're welcome to use the design to build things for your own commercial environ
 */
 
 // Cardboard tube center
-tube_insert_d = 70;
 tube_insert_h = 10;
+tube_insert_taper = 3;
 
 // Bolt dimensions
 bolt_diameter = 8;
 bolt_head = 15;
 
+module tube_center(
+  d = 102,
+  ) {
+  difference() {
 
-difference() {
     // Main body of insert
-    cylinder(tube_insert_h, d=tube_insert_d, $fn=100);
+    union() {  
+      // Bottom taper
+      cylinder(tube_insert_h/2, d1=d-tube_insert_taper, d2=d, $fn=1000);
+      
+      // Top cylinder
+      translate([0, 0, tube_insert_h/2]) {
+        cylinder(tube_insert_h/2, d=d, $fn=1000);
+      }
+    }
 
     // Hole through the middle
-    cylinder(tube_insert_h, d=(bolt_diameter + 0.1), $fn=100);
+    cylinder(tube_insert_h, d=(bolt_diameter + 0.1), $fn=200);
 
     // Bolt head clearance
-    cylinder(tube_insert_h/2, bolt_head/2, bolt_head/2, $fn=6);
+    translate([0, 0, tube_insert_h/2]) {
+      cylinder(tube_insert_h/2, bolt_head/2, bolt_head/2, $fn=6);
+    }
+  }
 }
+
+// tube_center(d = 102);
