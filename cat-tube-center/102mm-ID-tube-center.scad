@@ -13,7 +13,7 @@ You're welcome to use the design to build things for your own commercial environ
 */
 
 // Cardboard tube center
-tube_insert_d = 70;
+tube_insert_d = 102;
 tube_insert_h = 10;
 
 // Bolt dimensions
