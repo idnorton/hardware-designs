@@ -19,7 +19,7 @@ tube_insert_taper = 3;
 // Bolt dimensions
 bolt_diameter = 8;
 bolt_head_d = 15;
-bolt_head_h = 6;
+bolt_head_h = 6.5;
 
 module tube_center(
   d = 102,
@@ -35,6 +35,16 @@ module tube_center(
       translate([0, 0, tube_insert_h*0.25]) {
         cylinder(tube_insert_h*0.75, d=d, $fn=1000);
       }
+
+      // Pointy bits to stop tube rotation
+      translate([0, 0, tube_insert_h*0.25]) {
+        cylinder(tube_insert_h*0.75, d1=d, d2=d+0.4, $fn=6);
+      }
+
+      // Flange
+      translate([0, 0, tube_insert_h]) {
+          cylinder(bolt_head_h, d=d+6, $fn=1000);
+      }
     }
 
     // Hole through the middle
@@ -42,7 +52,7 @@ module tube_center(
 
     // Bolt head clearance
     translate([0, 0, tube_insert_h - bolt_head_h]) {
-      cylinder(bolt_head_h, d=bolt_head_d, $fn=6);
+      cylinder(bolt_head_h*2, d=bolt_head_d, $fn=6);
     }
 
     // Left screw
@@ -61,8 +71,8 @@ module screw() {
   // Screw through hole
   cylinder(
     $fn=100,
-    h=tube_insert_h,
-    d=4,
+    h=tube_insert_h*2,
+    d=4.5,
     center=false
   );
 
@@ -76,4 +86,4 @@ module screw() {
   );
 }
 
-// tube_center(d = 102);
+tube_center(d = 76);
