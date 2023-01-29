@@ -23,6 +23,7 @@ bolt_head_h = 6.5;
 
 module tube_center(
   d = 102,
+  flange = 0,
   ) {
   difference() {
 
@@ -42,8 +43,10 @@ module tube_center(
       }
 
       // Flange
-      translate([0, 0, tube_insert_h]) {
+      if (flange > 0) {
+        translate([0, 0, tube_insert_h]) {
           cylinder(bolt_head_h, d=d+6, $fn=1000);
+        }
       }
     }
 
@@ -86,4 +89,7 @@ module screw() {
   );
 }
 
-tube_center(d = 76);
+tube_center(
+  d = 76,
+  flange = 88
+);
