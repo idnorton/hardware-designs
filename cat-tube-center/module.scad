@@ -12,6 +12,9 @@ You're welcome to use the design to build things for your own commercial environ
 
 */
 
+d = 0;
+flange = 0;
+
 // Cardboard tube center
 tube_insert_h = 14;
 tube_insert_taper = 3;
@@ -45,7 +48,7 @@ module tube_center(
       // Flange
       if (flange > 0) {
         translate([0, 0, tube_insert_h]) {
-          cylinder(bolt_head_h, d=d+6, $fn=1000);
+          cylinder(bolt_head_h, d=flange, $fn=1000);
         }
       }
     }
@@ -90,6 +93,6 @@ module screw() {
 }
 
 tube_center(
-  d = 76,
-  flange = 88
+  d = d,
+  flange = flange
 );
