@@ -39,7 +39,7 @@ module tube_center(
 
       // Pointy bits to stop tube rotation
       translate([0, 0, tube_insert_h*0.25]) {
-        cylinder(tube_insert_h*0.75, d1=d, d2=d+0.4, $fn=6);
+        cylinder(tube_insert_h*0.75, d1=d, d2=d+0.5, $fn=6);
       }
 
       // Flange
