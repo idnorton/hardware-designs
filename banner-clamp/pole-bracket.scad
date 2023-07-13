@@ -52,7 +52,7 @@ module body_bottom () {
     // Hole for bolt and recess for head
     translate([body_x/2, body_y*0.65, 0]) {
       cylinder(body_z + 100,d=bolt_diameter, $fn=100);
-      cylinder(15, bolt_square/2, bolt_square/2, $fn=4);
+      cylinder(16, bolt_square/2, bolt_square/2, $fn=4);
       cylinder(12, bolt_head/2, bolt_head/2, $fn=100);
     }
   }
