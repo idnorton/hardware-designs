@@ -116,22 +116,22 @@ module wrench() {
 
     // Smaller head body
     translate([211, 0, -10]) {
-        cylinder(h = z, d = 37, $fn=50);
+        cylinder(h = z, d = 33, $fn=50);
     }
 
     // Open the inclusion between the big and small head portions
     translate([222, 0, -10]) {
-        cylinder(h = z, d = 42, $fn=50);
+        cylinder(h = z, d = 40, $fn=50);
     }
 
     // Main head body
     translate([237, 0, -10]) {
-        cylinder(h = z, d = 47, $fn=50);
+        cylinder(h = z, d = 43, $fn=50);
     }
 
     // 1/2" square drive
     translate([235, 0, -30]) {
-        cylinder(h = (2*z), d = 17, $fn=50);
+        cylinder(h = (2*z), d = 19, $fn=50);
     }
 }
 
