@@ -13,15 +13,14 @@ You're welcome to use the design to build things for your own use :)
 
 x = 265;
 y = 188;
-z = 28; // Should be 38 - bottom half
+z = 15; // Should be 28 - bottom half
 
-socket_z1 = 15;
-// 
+socket_z1 = 5; // should be 15
 
 spacing1 = 28;
 
 difference() {
-    
+
     // Box base
     cube([x, y, z]);
 
@@ -33,19 +32,19 @@ difference() {
 
         translate([x - 20 - spacing1, y - 20 - (i * spacing1), socket_z1]) {
             socket(d = 22.5);
-        }      
+        }
     }
-    
+
     // Column 3 - same size as others
     translate([x - 20 - (2 * spacing1), y - 20, socket_z1]) {
         socket(d = 22.5);
     }
-    
+
     // Column 3
     translate([x - 20 - (2 * spacing1), y - 20 - (1 * spacing1), socket_z1]) {
         socket(d = 24);
     }
-    
+
     // Column 3
     translate([x - 20 - (2 * spacing1), y - 20 - (2 * spacing1), socket_z1]) {
         socket(d = 25);
@@ -54,20 +53,20 @@ difference() {
     // Column 3
     translate([x - 20 - (2 * spacing1), y - 20 - (3 * spacing1), socket_z1]) {
         socket(d = 26);
-    }    
-    
+    }
+
     translate([31, y - 31, socket_z1]) {
         socket(d = 42);
     }
-        
+
     translate([78, y - 26, socket_z1]) {
         socket(d = 33);
     }
-    
+
     translate([119, y - 24, socket_z1]) {
         socket(d = 30);
     }
-    
+
     translate([156, y - 23, socket_z1]) {
         socket(d = 28);
     }
@@ -87,9 +86,8 @@ difference() {
         extension(d1 = 23.5, l1 = 25, d2 = 17, l2 = 55);
     }
 
-
     // Socket wrench
-    translate([5, 46, z]) {
+    translate([2, 46, z]) {
         wrench();
     }
 }
@@ -101,32 +99,39 @@ module wrench() {
             cylinder(h = 96, d = 18, $fn=50);
         }
     }
-    
+
     // Handle narrow middle
     translate([95, 0, 0]) {
         rotate([0, 90, 0]) {
             cylinder(h = 105, d = 14, $fn=200);
         }
     }
-    
-    // Smaller head body
-    translate([213, 0, -10]) {
-        cylinder(h = z, d = 33, $fn=50);
+
+    // Taper from handle to head
+    translate([184, 0, 0]) {
+        rotate([0, 90, 0]) {
+            cylinder(h = 12, d1 = 14, d2 = 20, $fn=200);
+        }
     }
-    
+
+    // Smaller head body
+    translate([211, 0, -10]) {
+        cylinder(h = z, d = 37, $fn=50);
+    }
+
     // Open the inclusion between the big and small head portions
     translate([222, 0, -10]) {
-        cylinder(h = z, d = 38, $fn=50);
+        cylinder(h = z, d = 42, $fn=50);
     }
 
     // Main head body
-    translate([235, 0, -10]) {
-        cylinder(h = z, d = 43, $fn=50);
+    translate([237, 0, -10]) {
+        cylinder(h = z, d = 47, $fn=50);
     }
-    
+
     // 1/2" square drive
     translate([235, 0, -30]) {
-        cylinder(h = z, d = 17, $fn=50);
+        cylinder(h = (2*z), d = 17, $fn=50);
     }
 }
 
@@ -137,7 +142,7 @@ module extension(d1, d2, l1, l2) {
             cylinder(h = l1+1, d = d1, $fn=50);
         }
     }
-    
+
     translate([l1, 0, 0]) {
         rotate([0, 90, 0]) {
             cylinder(h = l2, d = d2, $fn=50);
