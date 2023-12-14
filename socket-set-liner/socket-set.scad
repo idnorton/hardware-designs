@@ -11,11 +11,11 @@ You're welcome to use the design to build things for your own use :)
 
 **/
 
-x = 265;
-y = 188;
-z = 15; // Should be 28 - bottom half
+x = 263;
+y = 185;
+z = 28; // Should be 28 - bottom half
 
-socket_z1 = 5; // should be 15
+socket_z1 = 5;
 
 spacing1 = 28;
 
@@ -26,69 +26,85 @@ difference() {
 
     // 2 x 4 sockets on right edge all the same size
     for(i = [0 : 1 : 3]) {
-        translate([x - 20, y - 20 - (i * spacing1), socket_z1]) {
+        translate([x - 18, y - 18 - (i * spacing1), socket_z1]) {
             socket(d = 22.5);
         }
 
-        translate([x - 20 - spacing1, y - 20 - (i * spacing1), socket_z1]) {
+        translate([x - 18 - spacing1, y - 18 - (i * spacing1), socket_z1]) {
             socket(d = 22.5);
         }
     }
 
     // Column 3 - same size as others
-    translate([x - 20 - (2 * spacing1), y - 20, socket_z1]) {
+    translate([x - 18 - (2 * spacing1), y - 18, socket_z1]) {
         socket(d = 22.5);
     }
 
     // Column 3
-    translate([x - 20 - (2 * spacing1), y - 20 - (1 * spacing1), socket_z1]) {
+    translate([x - 18 - (2 * spacing1), y - 18 - (1 * spacing1), socket_z1]) {
         socket(d = 24);
     }
 
     // Column 3
-    translate([x - 20 - (2 * spacing1), y - 20 - (2 * spacing1), socket_z1]) {
+    translate([x - 18 - (2 * spacing1), y - 18 - (2 * spacing1), socket_z1]) {
         socket(d = 25);
     }
 
     // Column 3
-    translate([x - 20 - (2 * spacing1), y - 20 - (3 * spacing1), socket_z1]) {
+    translate([x - 18 - (2 * spacing1), y - 18 - (3 * spacing1), socket_z1]) {
         socket(d = 26);
     }
 
-    translate([31, y - 31, socket_z1]) {
+    // 32mm
+    translate([31, y - 27, socket_z1]) {
         socket(d = 42);
     }
 
-    translate([78, y - 26, socket_z1]) {
+    // 24mm
+    translate([78, y - 23, socket_z1]) {
         socket(d = 33);
     }
 
-    translate([119, y - 24, socket_z1]) {
+    // 22mm
+    translate([119, y - 22, socket_z1]) {
         socket(d = 30);
     }
 
-    translate([156, y - 23, socket_z1]) {
+    // 21mm
+    translate([156, y - 21, socket_z1]) {
         socket(d = 28);
     }
 
+    // Square adapter
+    translate([156, 134, socket_z1]) {
+        socket(d = 24);
+    }
+
     // 135mm extension
-    translate([11, 123, z]) {
-        extension(d1 = 16.75, l1 = 105, d2 = 24.5, l2 = 50);
+    translate([166, 105, z]) {
+      rotate([0, 180, 0]) {
+        extension(d1 = 24.5, l1 = 42, d2 = 16.75, l2 = 113);
+      }
     }
 
     // Universal joint
-    translate([8, 84, z]) {
-        extension(d1 = 27.5, l1 = 60, d2 = 17, l2 = 17);
+    translate([8, 76, z]) {
+        extension(d1 = 27.5, l1 = 59, d2 = 16, l2 = 17);
     }
 
-    // 60mm extension
-    translate([90, 84, z]) {
-        extension(d1 = 23.5, l1 = 25, d2 = 17, l2 = 55);
+    // 80mm extension
+    translate([90, 76, z]) {
+        extension(d1 = 23.5, l1 = 22, d2 = 17, l2 = 58);
     }
 
     // Socket wrench
-    translate([2, 46, z]) {
+    translate([2, 48, z]) {
         wrench();
+    }
+
+    // 250mm extension
+    translate([6, 15, z]) {
+        extension(d1 = 23, l1 = 25, d2 = 17, l2 = 225);
     }
 }
 
@@ -108,7 +124,7 @@ module wrench() {
     }
 
     // Taper from handle to head
-    translate([184, 0, 0]) {
+    translate([185, 0, 0]) {
         rotate([0, 90, 0]) {
             cylinder(h = 12, d1 = 14, d2 = 20, $fn=200);
         }
@@ -116,22 +132,22 @@ module wrench() {
 
     // Smaller head body
     translate([211, 0, -10]) {
-        cylinder(h = z, d = 33, $fn=50);
+        cylinder(h = z, d = 34, $fn=50);
     }
 
     // Open the inclusion between the big and small head portions
     translate([222, 0, -10]) {
-        cylinder(h = z, d = 40, $fn=50);
+        cylinder(h = z, d = 41, $fn=50);
     }
 
     // Main head body
     translate([237, 0, -10]) {
-        cylinder(h = z, d = 43, $fn=50);
+        cylinder(h = z, d = 44, $fn=50);
     }
 
     // 1/2" square drive
-    translate([235, 0, -30]) {
-        cylinder(h = (2*z), d = 19, $fn=50);
+    translate([234, 0, -30]) {
+        cylinder(h = (2*z), d = 20, $fn=50);
     }
 }
 
@@ -139,7 +155,7 @@ module extension(d1, d2, l1, l2) {
     // Top extension
     translate([0, 0, 0]) {
         rotate([0, 90, 0]) {
-            cylinder(h = l1+1, d = d1, $fn=50);
+            cylinder(h = l1, d = d1, $fn=50);
         }
     }
 
@@ -148,8 +164,16 @@ module extension(d1, d2, l1, l2) {
             cylinder(h = l2, d = d2, $fn=50);
         }
     }
+
+    // Chamfer between the two parts
+    translate([l1, 0, 0]) {
+        rotate([0, 90, 0]) {
+            cylinder(h = 10, d1 = d1, d2 = d2, $fn=50);
+        }
+    }
 }
 
 module socket(d) {
-    cylinder(h=z, d = d, $fn=50);
+    tolerance = 1; // Tolerance for printing shrinkage
+    cylinder(h=z, d = d + tolerance, $fn=50);
 }
