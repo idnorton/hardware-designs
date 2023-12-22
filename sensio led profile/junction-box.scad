@@ -11,7 +11,7 @@ You're welcome to use the design to build things for your own use :)
 
 **/
 
-d = 38;
+d = 34;
 
 x = 65;
 y = 25;
@@ -28,7 +28,7 @@ difference() {
     }
 
     // Hole for extrusion
-    translate([x, y - (d/2) + (thickness/2), 2]) {
+    translate([x, y - (d/2) - thickness, 2]) {
         rotate([0,270,0]) {
             quadrant();
         }
@@ -65,7 +65,7 @@ difference() {
 
 module quadrant() {
     intersection() {
-        cylinder(h = 10, d = 32, $fn = 50); 
+        cylinder(h = 10, d = d, $fn = 50);
         cube(d/2);
     }
 }
