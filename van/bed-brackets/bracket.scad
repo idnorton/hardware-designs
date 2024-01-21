@@ -13,7 +13,7 @@ You're welcome to use the design to build things for your own use :)
 
 length = 40;
 screws = 4;
-thickness = 2;
+thickness = 4;
 width_top = 42;
 width_bottom = 38;
 
