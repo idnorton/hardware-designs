@@ -21,7 +21,7 @@ width_bottom = 40;
 difference() {
     // Top outer
     translate([-(length/2), -((width_top + 2*thickness)/2), -(thickness/2)]) {
-        cube([length, width_top + (2 * thickness), height_top + thickness]); 
+        cube([length, width_top + (2 * thickness), height_top + thickness]);
     }
 
     // Top slot
@@ -47,10 +47,10 @@ module screw(h) {
 
 difference() {
     // Bottom outer
-    translate([-(length/2), -(width_bottom + 2*thickness)/2, -(width_bottom - (thickness/2))]) { 
-        cube([length, width_bottom + (2 * thickness), width_bottom]); 
+    translate([-(length/2), -(width_bottom + 2*thickness)/2, -(width_bottom - (thickness/2))]) {
+        cube([length, width_bottom + (2 * thickness), width_bottom]);
     }
-    
+
     // Bottom slot
     translate([-(length/2), -(width_bottom/2), -(width_bottom + (thickness/2))]) {
         cube([length, width_bottom, width_bottom]);
