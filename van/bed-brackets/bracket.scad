@@ -14,13 +14,14 @@ You're welcome to use the design to build things for your own use :)
 length = 40;
 screws = 4;
 thickness = 4;
-width_top = 42;
-width_bottom = 38;
+height_top = 13;
+width_top = 44;
+width_bottom = 40;
 
 difference() {
     // Top outer
     translate([-(length/2), -((width_top + 2*thickness)/2), -(thickness/2)]) {
-        cube([length, width_top + (2 * thickness), width_top]); 
+        cube([length, width_top + (2 * thickness), height_top + thickness]); 
     }
 
     // Top slot
@@ -30,17 +31,17 @@ difference() {
 
     // Screw holes?
     //translate([-6, -((width_top + 2*thickness)/2), (width_top/2)]) {
-    translate([-8, 0, (width_top/2)]) {
+    translate([-8, 0, (height_top/2)+(thickness/2)]) {
         screw(h = width_top + (2*thickness));
     }
-    translate([8, 0, (width_top/2)]) {
+    translate([8, 0, (height_top/2)+(thickness/2)]) {
         screw(h = width_top + (2*thickness));
     }
 }
 
 module screw(h) {
     rotate([90, 0, 0]) {
-        cylinder(h=h, d=screws, center=true);
+        cylinder(h=h, d=screws, center=true, $fn=50);
     }
 }
 
