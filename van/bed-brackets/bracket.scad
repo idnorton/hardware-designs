@@ -18,24 +18,26 @@ height_top = 13;
 width_top = 44;
 width_bottom = 40;
 
+offset = (width_top - width_bottom)/2;
+
 difference() {
     // Top outer
-    translate([-(length/2), -((width_top + 2*thickness)/2), -(thickness/2)]) {
+    translate([-(length/2), -((width_top + 2*thickness)/2)+offset, -(thickness/2)]) {
         cube([length, width_top + (2 * thickness), height_top + thickness]);
     }
 
     // Top slot
-    translate([-(length/2), -(width_top/2), (thickness/2)]) {
+    translate([-(length/2), -(width_top/2)+offset, (thickness/2)]) {
         cube([length, width_top, width_top]);
     }
 
     // Screw holes?
     //translate([-6, -((width_top + 2*thickness)/2), (width_top/2)]) {
     translate([-8, 0, (height_top/2)+(thickness/2)]) {
-        screw(h = width_top + (2*thickness));
+        screw(h = (2 * width_top));
     }
     translate([8, 0, (height_top/2)+(thickness/2)]) {
-        screw(h = width_top + (2*thickness));
+        screw(h = (2 * width_top));
     }
 }
 
