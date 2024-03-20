@@ -15,7 +15,7 @@ length = 40;
 screws = 4;
 thickness = 4;
 height_top = 13;
-width_top = 44;
+width_top = 22;
 width_bottom = 40;
 
 offset = (width_top - width_bottom)/2;
