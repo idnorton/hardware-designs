@@ -33,10 +33,10 @@ difference() {
 
     // Screw holes?
     //translate([-6, -((width_top + 2*thickness)/2), (width_top/2)]) {
-    translate([-8, 0, (height_top/2)+(thickness/2)]) {
+    translate([-8, -8, (height_top/2)+(thickness/2)]) {
         screw(h = (2 * width_top));
     }
-    translate([8, 0, (height_top/2)+(thickness/2)]) {
+    translate([8, -8, (height_top/2)+(thickness/2)]) {
         screw(h = (2 * width_top));
     }
 }
