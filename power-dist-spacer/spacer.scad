@@ -15,8 +15,8 @@ y = 76;
 z = 6;
 r = 10;
 
-hole_x = 13.5;
-hole_y = 12;
+hole_x = 16;
+hole_y = 15.5;
 holes = 6;
 
 difference() {
@@ -25,8 +25,11 @@ difference() {
     translate([hole_x, hole_y, 0]) { hole(); }
     translate([x-hole_x, y-hole_y, 0]) { hole(); }
     
-    translate([23, y/2, 0]) { hole(); }
-    translate([x - 23, y/2, 0]) { hole(); }    
+    indent = 25.5;
+    
+    // Holes on the y axis centre line
+    translate([indent, y/2, 0]) { hole(); }
+    translate([x - indent, y/2, 0]) { hole(); }    
 }
 
 module hole() {
