@@ -28,7 +28,7 @@ pcb_x = 148;
 pcb_y = 80;
 pcb_z = 25;
 
-wall = 2;
+wall = 1;
 
 difference() {
     cube([box_x, box_y, box_z]);
@@ -40,24 +40,32 @@ difference() {
             box_z
         ]);
     }
+    
+    // Save time and filament by chopping a chunk out of the back
+    translate([12, 5, 0]) {
+        cube([box_x-(2*12), box_y-(2*5), 2*wall]);
+    }
 }
 
-boss_x1 = ((box_x - (2*wall) - pcb_x)/2) + 5;
-boss_x2 = boss_x1 + 142;
-boss_y1 = ((box_y - (2*wall) - pcb_y)/2) + 5;
-boss_y2 = boss_y1 + 75;
+translate([(box_x - 143)/2, (box_y - 75) - 10, 0]){
+    bosses(x = 143, y = 75);
+}
 
-// Bosses for PCB mounting
-translate([boss_x1, boss_y1, 0]) { boss(); }
-translate([boss_x2, boss_y1, 0]) { boss(); }
-translate([boss_x1, boss_y2, 0]) { boss(); }
-translate([boss_x2, boss_y2, 0]) { boss(); }
-
+module bosses(
+    x = 0,
+    y = 0,
+) {
+    // Bosses for PCB mounting
+    translate([0, 0, 0]) { boss(); } // Bottom left
+    translate([x, 0, 0]) { boss(); } // Bottom right
+    translate([0, y, 0]) { boss(); } // Top left
+    translate([x, y, 0]) { boss(); } // Top right
+}
 
 module boss() {
     boss_d1 = 5;
     boss_d2 = 3;
 
-    cylinder(h = 10, d = 3, $fn = 50);
+    cylinder(h = 7, d = 3, $fn = 50);
     cylinder(h = 5, d = 5, $fn = 50);
 }
