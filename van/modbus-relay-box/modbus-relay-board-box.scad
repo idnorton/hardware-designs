@@ -32,7 +32,7 @@ wall = 2;
 
 difference() {
     cube([box_x, box_y, box_z]);
-    
+
     translate([wall, wall, wall]) {
         cube([
             (box_x - (2*wall)),
@@ -48,19 +48,16 @@ boss_y1 = ((box_y - (2*wall) - pcb_y)/2) + 5;
 boss_y2 = boss_y1 + 75;
 
 // Bosses for PCB mounting
-translate([boss_x1, boss_y1, (2*wall)]) { boss(); }
-translate([boss_x2, boss_y1, (2*wall)]) { boss(); }
-translate([boss_x1, boss_y2, (2*wall)]) { boss(); }
-translate([boss_x2, boss_y2, (2*wall)]) { boss(); }
+translate([boss_x1, boss_y1, 0]) { boss(); }
+translate([boss_x2, boss_y1, 0]) { boss(); }
+translate([boss_x1, boss_y2, 0]) { boss(); }
+translate([boss_x2, boss_y2, 0]) { boss(); }
 
 
 module boss() {
     boss_d1 = 5;
     boss_d2 = 3;
-    
-    cylinder(h = 10, d = 3, center = true, $fn = 50);
-    cylinder(h = 5, d = 5, center = true, $fn = 50);    
+
+    cylinder(h = 10, d = 3, $fn = 50);
+    cylinder(h = 5, d = 5, $fn = 50);
 }
-
-
-
