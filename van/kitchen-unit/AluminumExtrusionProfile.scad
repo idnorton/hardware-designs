@@ -1,3 +1,11 @@
+/*
+
+Original library found at https://github.com/ServerNinja/OpenSCAD_AluminumExtrusionProfile_Library
+
+Licence is http://www.apache.org/licenses/LICENSE-2.0
+
+*/
+
 /* 
 
   Uncomment lines below for testing....
