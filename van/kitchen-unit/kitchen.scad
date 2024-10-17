@@ -2,7 +2,7 @@ $fn = 100;
 
 include <AluminumExtrusionProfile.scad>
 
-height = 890;
+height = 845;
 
 // Front bar on floor
 translate([0, 15, 15])
