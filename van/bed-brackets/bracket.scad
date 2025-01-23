@@ -11,10 +11,10 @@ You're welcome to use the design to build things for your own use :)
 
 **/
 
-length = 40;
-screws = 4;
+length = 38;
+screws = 4.5;
 thickness = 4;
-height_top = 13;
+height_top = 38;
 width_top = 22;
 width_bottom = 40;
 
@@ -28,16 +28,23 @@ difference() {
 
     // Top slot
     translate([-(length/2), -(width_top/2)+offset, (thickness/2)]) {
-        cube([length, width_top, width_top]);
+        cube([length, width_top, height_top]);
     }
 
-    // Screw holes?
-    //translate([-6, -((width_top + 2*thickness)/2), (width_top/2)]) {
-    translate([-8, -8, (height_top/2)+(thickness/2)]) {
+    // Screw holes
+    translate([0, 0 + offset, (height_top/2)+(thickness/2)]) {
+        // Central hole
         screw(h = (2 * width_top));
     }
-    translate([8, -8, (height_top/2)+(thickness/2)]) {
-        screw(h = (2 * width_top));
+
+    translate([-8, 0 + offset, (height_top/2)+(thickness/2)]) {
+        // Offset hole #1
+        //screw(h = (2 * width_top));
+    }
+
+    translate([8, 0 + offset, (height_top/2)+(thickness/2)]) {
+        // Offset hole #2
+        //screw(h = (2 * width_top));
     }
 }
 
