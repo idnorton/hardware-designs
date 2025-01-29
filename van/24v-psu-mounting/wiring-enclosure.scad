@@ -62,49 +62,87 @@ difference() {
         fuse_holder();
     }
     
-    // Gap to put the anderson power pole in
-    translate([54, 10, (z/2)+thickness]) { union() { cube([24, 20, 20], center = true); }}   
-}
-
-difference() {
-    // Cube to host anderson connector
-    translate([54, 10, (z/2)+thickness]) { union() { cube([24, 20, 20], center = true); }}
-
     // Anderson connector
-    translate([54, 12, (z/2)+thickness]) {
+    translate([54, 0, (z/2)+thickness]) {
         anderson();
     }
+    
+    // Gap to put the anderson power pole in
+    //translate([54, 10, (z/2)+thickness]) { union() { cube([24, 20, 20], center = true); }}   
 }
+
+//difference() {
+    // Cube to host anderson connector
+    //translate([54, 10, (z/2)+thickness]) { union() { cube([24, 20, 20], center = true); }}
+
+    // Anderson connector
+    //translate([54, 12, (z/2)+thickness]) {
+    //    anderson();
+    //}
+//}
 
 // Mounting lugs x 2
 
 
 module anderson() {
     // https://www.printables.com/model/467932-anderson-powerpole-chassis-socket-panel
-    //cube([13.5, 4*thickness, 21.5], center = true);
+    cube([13.5, 4*thickness, 21.5], center = true);
     
-    //translate([-9, 0, -13]) {
-    //    front_screw(d = 3.5);
-    //}
-
-    //translate([9, 0, -13]) {
-    //    front_screw(d = 3.5);
-    //}
-
-    //translate([-9, 0, 13]) {
-    //    front_screw(d = 3.5);
-    //}
-    
-    //translate([9, 0, 13]) {
-    //    front_screw(d = 3.5);
-    //}
-    
-    
-    rotate([0,180,90]) {
-        powerPoleShell(centerPin=false, outerPins=false);
-        translate([2.5,-7.9,-10]) cylinder(r=1.01,h=80); // 20140408
-        translate([2.5,7.9,-10]) cylinder(r=1.01,h=80); // 20140408
+    // Bolt
+    translate([-9, 0, -13]) {
+        front_screw(d = 3.5);
     }
+
+    // Nut
+    translate([-9, 7.5, -13]) {
+        rotate([90, 0, 0]) {
+            cylinder(h=thickness, d=6, center=true, $fn=6);
+        }
+    }
+
+    // Bolt
+    translate([9, 0, -13]) {
+        front_screw(d = 3.5);
+    }
+
+    // Nut
+    translate([9, 7.5, -13]) {
+        rotate([90, 0, 0]) {
+            cylinder(h=thickness, d=6, center=true, $fn=6);
+        }
+    }
+
+    // Bolt
+    translate([-9, 0, 13]) {
+        front_screw(d = 3.5);
+    }
+    
+    // Nut
+    translate([-9, 7.5, 13]) {
+        rotate([90, 0, 0]) {
+            cylinder(h=thickness, d=6, center=true, $fn=6);
+        }
+    }
+      
+    // Bolt
+    translate([9, 0, 13]) {
+        front_screw(d = 3.5);
+    }
+    
+    // Nut
+    translate([9, 7.5, 13]) {
+        rotate([90, 0, 0]) {
+            cylinder(h=thickness, d=6, center=true, $fn=6);
+        }
+    }
+
+    
+    
+//    rotate([0,180,90]) {
+//        powerPoleShell(centerPin=false);
+//        translate([2.5,-7.9,-10]) cylinder(r=1.01,h=80); // 20140408
+//        translate([2.5,7.9,-10]) cylinder(r=1.01,h=80); // 20140408
+//    }
     
 }
 
