@@ -16,7 +16,7 @@ z = 6;
 r = 10;
 
 hole_x = 16;
-hole_y = 15.5;
+hole_y = 13.5;
 holes = 6;
 
 difference() {
