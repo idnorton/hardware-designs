@@ -178,7 +178,7 @@
 
   (footprint "Fuse:Fuse_Blade_ATO_directSolder" (layer "F.Cu")
     (tedit 5A1C8B0A) (tstamp 1cbc2f9f-249a-4535-80a4-9bcc85409115)
-    (at 96.52 51.28 -90)
+    (at 96.52 51.738 -90)
     (descr "car blade fuse direct solder")
     (tags "car blade fuse")
     (property "Sheetfile" "breakout-board.kicad_sch")
@@ -227,7 +227,7 @@
 
   (footprint "Fuse:Fuse_Blade_ATO_directSolder" (layer "F.Cu")
     (tedit 5A1C8B0A) (tstamp 1d0b899b-109f-41b0-9892-8580a3e58416)
-    (at 73.66 51.28 -90)
+    (at 73.66 51.738 -90)
     (descr "car blade fuse direct solder")
     (tags "car blade fuse")
     (property "Sheetfile" "breakout-board.kicad_sch")
@@ -276,7 +276,7 @@
 
   (footprint "Fuse:Fuse_Blade_ATO_directSolder" (layer "F.Cu")
     (tedit 5A1C8B0A) (tstamp 2ad1bfb2-e18a-45fe-a953-58d718fdfd54)
-    (at 50.8 51.28 -90)
+    (at 50.8 51.738 -90)
     (descr "car blade fuse direct solder")
     (tags "car blade fuse")
     (property "Sheetfile" "breakout-board.kicad_sch")
@@ -394,7 +394,7 @@
 
   (footprint "Fuse:Fuse_Blade_ATO_directSolder" (layer "F.Cu")
     (tedit 5A1C8B0A) (tstamp 41e4b550-b017-4ee3-b438-e019a7b2c1fb)
-    (at 187.96 51.28 -90)
+    (at 187.96 51.738 -90)
     (descr "car blade fuse direct solder")
     (tags "car blade fuse")
     (property "Sheetfile" "breakout-board.kicad_sch")
@@ -443,7 +443,7 @@
 
   (footprint "Fuse:Fuse_Blade_ATO_directSolder" (layer "F.Cu")
     (tedit 5A1C8B0A) (tstamp 494fd830-11ec-47c4-aefe-acb45d62c219)
-    (at 119.38 51.28 -90)
+    (at 119.38 51.738 -90)
     (descr "car blade fuse direct solder")
     (tags "car blade fuse")
     (property "Sheetfile" "breakout-board.kicad_sch")
@@ -837,7 +837,7 @@
 
   (footprint "Fuse:Fuse_Blade_ATO_directSolder" (layer "F.Cu")
     (tedit 5A1C8B0A) (tstamp 7eee1846-3827-445c-a72d-8fb8475b0045)
-    (at 165.1 51.28 -90)
+    (at 165.1 51.738 -90)
     (descr "car blade fuse direct solder")
     (tags "car blade fuse")
     (property "Sheetfile" "breakout-board.kicad_sch")
@@ -1231,7 +1231,7 @@
 
   (footprint "Fuse:Fuse_Blade_ATO_directSolder" (layer "F.Cu")
     (tedit 5A1C8B0A) (tstamp bbd6777b-68bf-4f4c-ad39-3a14d6997e65)
-    (at 142.24 51.28 -90)
+    (at 142.24 51.738 -90)
     (descr "car blade fuse direct solder")
     (tags "car blade fuse")
     (property "Sheetfile" "breakout-board.kicad_sch")
@@ -1556,7 +1556,7 @@
 
   (footprint "Fuse:Fuse_Blade_ATO_directSolder" (layer "F.Cu")
     (tedit 5A1C8B0A) (tstamp fb0b2b87-5171-4e94-81ea-3d60cd9b4c13)
-    (at 210.82 51.28 -90)
+    (at 210.82 51.738 -90)
     (descr "car blade fuse direct solder")
     (tags "car blade fuse")
     (property "Sheetfile" "breakout-board.kicad_sch")
