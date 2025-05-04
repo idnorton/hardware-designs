@@ -27,7 +27,7 @@ modbus_y = 80;
 wall_thickness = 2;
 wall_x = fuse_x + modbus_x + (3 * cable_border) + (2 * wall_thickness);
 wall_y = max(fuse_y, modbus_y) + (2 * cable_border) + (2 * wall_thickness);
-wall_z = 35;
+wall_z = 5;
 
 difference() {
     
@@ -80,7 +80,13 @@ difference() {
 
     translate([wall_thickness + (2 * cable_border) + fuse_x, wall_thickness + 2, 0]) {
         cube([modbus_x, cable_border - 4, (wall_thickness * 2)]);
-    }    
+    }
+    
+    // Mounting points
+   translate([10, 10, 0]) { countersink(); }
+   translate([wall_x - 10, 10, 0]) { countersink(); }
+   translate([10, wall_y - 10, 0]) { countersink(); }
+   translate([wall_x - 10, wall_y - 10, 0]) { countersink(); }
 }
 
 module fusebox() {
@@ -88,16 +94,24 @@ module fusebox() {
     cube([fuse_x, fuse_y, wall_thickness]);
 
     // Mounting holes
-    translate([7, 7, 0]) { hole(d=4); }
-    translate([fuse_x - 7, 7, 0]) { hole(d=4); }
-    translate([7, fuse_y - 7, 0]) { hole(d=4); }
-    translate([fuse_x - 7, fuse_y - 7, 0]) { hole(d=4); }
+    translate([7, 7, 0]) { hole(d=4.2); }
+    translate([fuse_x - 7, 7, 0]) { hole(d=4.2); }
+    translate([7, fuse_y - 7, 0]) { hole(d=4.2); }
+    translate([fuse_x - 7, fuse_y - 7, 0]) { hole(d=4.2); }
 }
 
 module hole(d = 4) {
     cylinder(h = (wall_thickness * 2), d = d, center = true, $fn=50);
 }
 
+module countersink(
+        d1 = 4,
+        d2 = 10,
+        depth = 4
+    ){
+    cylinder(h = depth, d1 = d1, d2 = d2, center = true, $fn = 50);
+}
+    
 module modbus() {
     // PCB outline
     cube([modbus_x, modbus_y, wall_thickness]);
