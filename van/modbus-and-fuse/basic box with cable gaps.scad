@@ -19,7 +19,7 @@ Perimiters: 3
 wall_thickness = 2;
 wall_x = 210; // This needs to be an arg
 wall_y = 150;
-wall_z = 20;
+wall_z = 5;
 
 gaps = 45;
 corner = 20;
