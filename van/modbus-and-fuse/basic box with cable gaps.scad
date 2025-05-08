@@ -16,6 +16,7 @@ Perimiters: 3
 
 **/
 
+base_thickness = 1;
 wall_thickness = 2;
 wall_x = 210; // This needs to be an arg
 wall_y = 150;
@@ -26,24 +27,31 @@ corner = 20;
 insert = 2;
 support = 5;
 
-
-
 difference() {
     // Exterior body
     cube([wall_x, wall_y, wall_z]);
-    
+
     // Hollow out the main body
     translate([
       wall_thickness,
       wall_thickness,
-      wall_thickness
+      base_thickness
     ]) {
       cube([
         wall_x - (2 * wall_thickness),
         wall_y - (2 * wall_thickness),
-        wall_z - wall_thickness]);  
+        wall_z - base_thickness]);
     }
 
+    // Remove cable route above to save on materials
+    translate([20, 20, 0]) {
+        cube([wall_x - gaps, wall_y/4, base_thickness]);
+    }
+
+    // Remove cable route below to save on materials
+    translate([20, wall_y - 60, 0]) {
+        cube([wall_x - gaps, wall_y/4, base_thickness]);
+    }
     // Left side bottom gap
     translate([0, corner, 0]) {
         vgap();
@@ -53,7 +61,7 @@ difference() {
     translate([0, wall_y - gaps - corner, 0]) {
         vgap();
     }
-    
+
     // Right side bottom gap
     translate([
         wall_x - insert - wall_thickness,
@@ -62,7 +70,7 @@ difference() {
     ]) {
         vgap();
     }
-    
+
     // Right side top gap
     translate([
         wall_x - insert - wall_thickness,
@@ -71,7 +79,7 @@ difference() {
     ]) {
         vgap();
     }
-    
+
     // Top side left gap
     translate([
         corner,
@@ -80,7 +88,7 @@ difference() {
     ]) {
         hgap();
     }
-    
+
     // Top side right gap
     translate([
         wall_x - gaps - corner,
@@ -89,24 +97,40 @@ difference() {
     ]) {
         hgap();
     }
-    
+
     // Bottom side left gap
     translate([corner, 0, 0]) {
         hgap();
     }
-    
+
     // Bottom side right gap
     translate([wall_x - gaps - corner, 0, 0]) {
         hgap();
     }
 }
 
-//translate([2*wall_thickness, wall_y - 7, 0]) {
-    //cube([support, support, wall_z]);
-    //prism(5, 5, wall_z);
-    //prism(2, 5, wall_z);
-//}
+// Supports
+// Left edge
+support(wall_thickness, wall_thickness);
+support(wall_thickness, (wall_y/2) - (support/2));
+support(wall_thickness, wall_y - wall_thickness - support);
 
+// Middle
+support((wall_x/3), wall_thickness);
+support((wall_x/3), wall_y - wall_thickness - support);
+support(((wall_x/3)*2) - support, wall_thickness);
+support(((wall_x/3)*2) - support, wall_y - wall_thickness - support);
+
+// Right edge
+support(wall_x - wall_thickness - support, wall_thickness);
+support(wall_x - wall_thickness - support, (wall_y/2) - (support/2));
+support(wall_x - wall_thickness - support, wall_y - wall_thickness - support);
+
+module support(x, y) {
+    translate([x, y, 0]) {
+        cube([support, support, wall_z]);
+    }
+}
 
 module hgap() {
     cube([gaps, insert + wall_thickness, wall_z]);
@@ -114,40 +138,4 @@ module hgap() {
 
 module vgap() {
     cube([insert + wall_thickness, gaps, wall_z]);
-}
-
-
-
-
-module prism(l, w, h) {
-    polyhedron(//pt 0        1        2        3        4        5
-        points=[[0,0,0], [l,0,0], [l,w,0], [0,w,0], [0,w,h], [l,w,h]],
-        faces=[[0,1,2,3],[5,4,3,2],[0,4,5,1],[0,3,4],[5,2,1]]
-    );
-      
-    // preview unfolded (do not include in your function
-    z = 0.08;
-    separation = 2;
-    border = .2;
-    
-    translate([0,w+separation,0])
-        cube([l,w,z]);
-    
-    translate([0,w+separation+w+border,0])
-        cube([l,h,z]);
-    
-    translate([0,w+separation+w+border+h+border,0])
-        cube([l,sqrt(w*w+h*h),z]);
-    
-    translate([l+border,w+separation,0])
-        polyhedron(//pt 0       1       2        3       4       5
-            points=[[0,0,0],[h,w,0],[0,w,0], [0,0,z],[h,w,z],[0,w,z]],
-            faces=[[0,1,2], [3,5,4], [0,3,4,1], [1,4,5,2], [2,5,3,0]]
-        );
-        
-    translate([0-border,w+separation,0])
-        polyhedron(//pt 0       1         2        3       4         5
-            points=[[0,0,0],[0-h,w,0],[0,w,0], [0,0,z],[0-h,w,z],[0,w,z]],
-            faces=[[1,0,2],[5,3,4],[0,1,4,3],[1,2,5,4],[2,0,3,5]]
-        );
 }
