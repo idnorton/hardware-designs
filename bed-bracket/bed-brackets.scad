@@ -10,6 +10,11 @@ See https://creativecommons.org/licenses/by-nc/3.0/
 Specifically you may not sell the design or products using the design.
 You're welcome to use the design to build things for your own commercial event
 
+Print settings: 0.20mm QUALITY
+Supports: None
+Infill: 20%
+Perimiters: 2
+
 */
 
 bedpost = 52;
