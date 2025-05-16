@@ -16,16 +16,18 @@ Perimiters: 3
 
 **/
 
-base_thickness = 1;
+base_thickness = 2;
 wall_thickness = 2;
 wall_x = 210; // This needs to be an arg
-wall_y = 150;
-wall_z = 5;
+wall_y = 200;
+wall_z = 40;
 
 gaps = 45;
 corner = 20;
 insert = 2;
 support = 5;
+gap_offset = 85;
+rear_gap = wall_y/4;
 
 difference() {
     // Exterior body
@@ -45,12 +47,12 @@ difference() {
 
     // Remove cable route above to save on materials
     translate([20, 20, 0]) {
-        cube([wall_x - gaps, wall_y/4, base_thickness]);
+        cube([wall_x - gaps, rear_gap, base_thickness]);
     }
 
     // Remove cable route below to save on materials
-    translate([20, wall_y - 60, 0]) {
-        cube([wall_x - gaps, wall_y/4, base_thickness]);
+    translate([20, wall_y - rear_gap - 20, 0]) {
+        cube([wall_x - gaps, rear_gap, base_thickness]);
     }
     // Left side bottom gap
     translate([0, corner, 0]) {
@@ -58,7 +60,7 @@ difference() {
     }
 
     // Left side top gap
-    translate([0, wall_y - gaps - corner, 0]) {
+    translate([0, gap_offset, 0]) { //wall_y - gaps - corner, 0]) {
         vgap();
     }
 
@@ -74,7 +76,7 @@ difference() {
     // Right side top gap
     translate([
         wall_x - insert - wall_thickness,
-        wall_y - gaps - corner,
+        gap_offset,
         0
     ]) {
         vgap();
@@ -112,7 +114,8 @@ difference() {
 // Supports
 // Left edge
 support(wall_thickness, wall_thickness);
-support(wall_thickness, (wall_y/2) - (support/2));
+support(wall_thickness, 72.5);
+support(wall_thickness, gap_offset * 1.6);
 support(wall_thickness, wall_y - wall_thickness - support);
 
 // Middle
@@ -123,8 +126,15 @@ support(((wall_x/3)*2) - support, wall_y - wall_thickness - support);
 
 // Right edge
 support(wall_x - wall_thickness - support, wall_thickness);
-support(wall_x - wall_thickness - support, (wall_y/2) - (support/2));
+support(wall_x - wall_thickness - support, 72.5);
+support(wall_x - wall_thickness - support, gap_offset * 1.6);
 support(wall_x - wall_thickness - support, wall_y - wall_thickness - support);
+
+// Mounting bosses for DIN rail
+
+
+// Mounting bosses for wall fixing
+
 
 module support(x, y) {
     translate([x, y, 0]) {
