@@ -15,11 +15,11 @@ Perimeters:     4
 
 **/
 
-x = 83;
-y = 124;
+x = 84;
+y = 124.5;
 z = 1.5;
-x_mounting = 71;
-y_mounting = 112;
+x_mounting = 72;
+y_mounting = 112.5;
 hole = 5.6;
 boss = 12;
 
