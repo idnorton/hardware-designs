@@ -29,10 +29,10 @@ y_offset = (y - y_mounting)/2;
 difference() {
     cube([x, y, z]);
     translate([boss, boss, 0]) cube([x - (2*boss), y - (2*boss), z]);
-    translate([x_offset, y_offset, 0]) cylinder(h = z, d = hole, $fn = 100);
-    translate([x_offset, y_offset + y_mounting, 0]) cylinder(h = z, d = hole, $fn = 100);
-    translate([x_offset + x_mounting, y_offset + y_mounting, 0]) cylinder(h = z, d = hole, $fn = 100);
-    translate([x_offset + x_mounting, y_offset, 0]) cylinder(h = z, d = hole, $fn = 100);
+    translate([x_offset, y_offset, 0]) cylinder(h = z, d = hole, $fn = 50);
+    translate([x_offset, y_offset + y_mounting, 0]) cylinder(h = z, d = hole, $fn = 50);
+    translate([x_offset + x_mounting, y_offset + y_mounting, 0]) cylinder(h = z, d = hole, $fn = 50);
+    translate([x_offset + x_mounting, y_offset, 0]) cylinder(h = z, d = hole, $fn = 50);
 }
 
 translate([x_offset, y_offset, 0]) boss();
@@ -42,11 +42,11 @@ translate([x_offset + x_mounting, y_offset, 0]) boss();
 
 module boss() {
     difference() {
-        h = 8;
+        h = 13;
         insert = 5.6;
         
-        cylinder(h = h, d = boss, $fn = 100);     // Body of the boss
-        translate([0, 0, h - z]) cylinder(h = z, d = 8.5, $fn = 100); // Insert in the top
-        cylinder(h = h, d = insert, $fn = 100); // Hole for the heat press insert
+        cylinder(h = h, d = boss, $fn = 50);     // Body of the boss
+        translate([0, 0, h - z]) cylinder(h = z, d = 8.5, $fn = 50); // Insert in the top
+        cylinder(h = h, d = insert, $fn = 50); // Hole for the heat press insert
     }
 }
