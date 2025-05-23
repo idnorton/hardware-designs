@@ -55,41 +55,19 @@ difference() {
         cube([wall_x - 40, rear_gap, base_thickness]);
     }
     // Left side bottom gap
-    translate([0, corner, 0]) {
-        vgap();
-    }
+    translate([0, corner, 0]) vgap();
 
     // Left side top gap
-    translate([0, gap_offset, 0]) { //wall_y - gaps - corner, 0]) {
-        vgap();
-    }
+    translate([0, gap_offset, 0]) vgap();
 
     // Right side bottom gap
-    translate([
-        wall_x - insert - wall_thickness,
-        corner,
-        0
-    ]) {
-        vgap();
-    }
+    translate([wall_x - insert - wall_thickness, corner, 0]) vgap();
 
     // Right side top gap
-    translate([
-        wall_x - insert - wall_thickness,
-        gap_offset,
-        0
-    ]) {
-        vgap();
-    }
+    translate([wall_x - insert - wall_thickness, gap_offset, 0]) vgap();
 
     // Top side left gap
-    translate([
-        corner,
-        wall_y - insert - wall_thickness,
-        0
-    ]) {
-        hgap();
-    }
+    translate([corner, wall_y - insert - wall_thickness, 0]) hgap();
 
     // Top side right gap
     translate([
@@ -101,14 +79,10 @@ difference() {
     }
 
     // Bottom side left gap
-    translate([corner, 0, 0]) {
-        hgap();
-    }
+    translate([corner, 0, 0]) hgap();
 
     // Bottom side right gap
-    translate([wall_x - gaps - corner, 0, 0]) {
-        hgap();
-    }
+    translate([wall_x - gaps - corner, 0, 0]) hgap();
 }
 
 difference() {
@@ -132,14 +106,16 @@ difference() {
         support(wall_x - wall_thickness - support, gap_offset * 1.6);
         support(wall_x - wall_thickness - support, wall_y - wall_thickness - support);
         
-        // Mounting bosses for DIN rail
+        lid_inset = 10;
         
+        // Column and hole for cover screws
+        lid_fixing(d = 12, x = lid_inset, y = lid_inset);
+        lid_fixing(d = 12, x = lid_inset, y = wall_y - lid_inset);
+        lid_fixing(d = 12, x = wall_x - lid_inset, y = wall_y - lid_inset);
+        lid_fixing(d = 12, x = wall_x - lid_inset, y = lid_inset);
         
         // Mounting bosses for wall fixing
     }
-    
-
-    
 
     // Box lid lip left
     translate([wall_thickness, wall_thickness, wall_z - wall_thickness]) {
@@ -163,9 +139,7 @@ difference() {
 }
 
 module support(x, y) {
-    translate([x, y, 0]) {
-        cube([support, support, wall_z]);
-    }
+    translate([x, y, 0]) cube([support, support, wall_z]);
 }
 
 module hgap() {
@@ -174,4 +148,11 @@ module hgap() {
 
 module vgap() {
     cube([insert + wall_thickness, gaps, wall_z]);
+}
+
+module lid_fixing(d, x, y) {
+    difference() {
+        translate([x, y, 0]) cylinder(h = wall_z, d = d, $fn = 50);
+        translate([x, y, wall_z - 6]) cylinder(h = 10, d = 5.6, $fn = 50);
+    }
 }
