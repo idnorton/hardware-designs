@@ -10,12 +10,13 @@ Specifically you may not sell the design or products using the design.
 You're welcome to use the design to build things for your own use :)
 
 Perimiters: 4
+Seam position: Random
 
 **/
 
 camera_x = 22;
 camera_y = 22;
-camera_z = 5;
+camera_z = 3;
 
 cable = 4;
 screw_camera = 3;
@@ -62,7 +63,7 @@ difference() {
     }
 
     // Recess for camera bosses
-    translate([((external_x - camera_x) / 2), (camera_y/2) + external_wall, 2.5]) {
+    translate([((external_x - camera_x) / 2), (camera_y/2) + external_wall, camera_z - 2.1]) {
         cube([camera_x, camera_y/2, 4]);
     }
 
