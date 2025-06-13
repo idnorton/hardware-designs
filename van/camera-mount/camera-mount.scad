@@ -20,10 +20,12 @@ camera_z = 5;
 cable = 4;
 screw_camera = 3;
 screw_mount = 4;
-screw_pivot = 5;
+screw_pivot = 4;
+screw_nut_d = 7.5;
+screw_nut_h = 3.8;
 screw_spacing_camera = 13;
 
-heat_set_insert = 4;
+heat_set_insert = 5;
 external_wall = 1;
 external_x = camera_x + (2 * heat_set_insert);
 external_y = camera_y + (2 * external_wall);
@@ -46,7 +48,12 @@ difference() {
         cube([camera_x, camera_y, external_z]);
     }
 
-    // Mounting holes through the sides
+    // captive nuts
+    translate([heat_set_insert - screw_nut_h, external_y/2, (camera_z+external_z)/2]) {
+        rotate([0, 90, 0]) cylinder(h = camera_x + (2*screw_nut_h), d = screw_nut_d, $fn=6);
+    }
+
+    // Through hole through the sides
     translate([-1, external_y/2, (camera_z+external_z)/2]) {
         rotate([0, 90, 0]) cylinder(h = external_x + external_wall, d = screw_pivot);
     }
