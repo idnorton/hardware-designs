@@ -14,19 +14,18 @@ Seam position: Random
 
 **/
 
-camera_x = 22;
-camera_y = 22;
+camera_x = 22.2;
+camera_y = 22.2;
 camera_z = 3;
 
 cable = 4;
 screw_camera = 3;
-screw_mount = 4;
-screw_pivot = 4;
-screw_nut_d = 7.5;
+screw_pivot = 4.1;
+screw_nut_d = 7.9;
 screw_nut_h = 3.8;
 screw_spacing_camera = 13;
 
-heat_set_insert = 5;
+heat_set_insert = 6;
 external_wall = 1;
 external_x = camera_x + (2 * heat_set_insert);
 external_y = camera_y + (2 * external_wall);
