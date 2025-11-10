@@ -9,6 +9,8 @@ We put these up on the festoon poles using a combination of:
 * M8 plastic domed nut
 
 ![EMF banners from a distace](files/emf-banners.jpg)
+![EMF banners wide](files/emf-banners-wide.jpg)
+![EMF banners close up](files/emf-banners-closeup.jpg)
 
 We put a number of banners up before it became clear that there was a
 problem with this approach. We only fixed the banners at the top of the
