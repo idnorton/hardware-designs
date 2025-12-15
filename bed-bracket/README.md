@@ -12,7 +12,17 @@ the two pieces.
 
 ## STL Preview
 
-![Bed brackets](https://3dviewer.net/#model=https://raw.githubusercontent.com/idnorton/hardware-designs/main/bed-bracket/bed-brackets.stl)
+
+<script src="https://embed.github.com/view/3d/idnorton/hardware-designs/main/bed-bracket/bed-brackets.stl"></script>
+
+
+![STL example in markdown.](bed-brackets.stl)
+
+![Start Page](assets/images/3dviewer_net_start_page.png?raw=true)
+
+
+
+[Bed brackets](https://3dviewer.net/#model=https://raw.githubusercontent.com/idnorton/hardware-designs/main/bed-bracket/bed-brackets.stl)
 
 ## Example print
 
