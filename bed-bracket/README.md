@@ -12,7 +12,7 @@ the two pieces.
 
 ## STL Preview
 
-![bed-brackets](bed-brackets.stl)
+[Bed brackets](https://3dviewer.net/#model=https://raw.githubusercontent.com/idnorton/hardware-designs/main/bed-bracket/bed-brackets.stl)
 
 ## Example print
 
