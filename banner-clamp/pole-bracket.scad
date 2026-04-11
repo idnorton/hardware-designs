@@ -1,5 +1,5 @@
 /*
-  
+
 Banner mounting bracket for poles
 @idnorton
 2022-06-22
@@ -26,29 +26,29 @@ bolt_head = 17;
 band_thickness = 6;
 
 module body_bottom () {
-  
+
   difference() {
     union () {
       // Big square body
       cube([body_x, body_y, body_z]);
-    
+
       // Top triangle
       translate([body_x/2, 0, 32]) {
         rotate([270,45,0]) {
           cube([body_x/2, body_x/2, body_y]);
         }
       }
-      
-      
+
+
     }
-    
+
     // V in the back
     translate([body_x/2, -1, 10]) {
       rotate([270, 45, 0]) {
         cube([body_x, body_x, body_y+2]);
       }
     }
-    
+
     // Hole for bolt and recess for head
     translate([body_x/2, body_y*0.65, 0]) {
       cylinder(body_z + 100,d=bolt_diameter, $fn=100);
@@ -66,7 +66,7 @@ module body_bottom () {
   translate([0, body_y + 20, 0]) {
     band();
   }
-  
+
   translate([0, body_y +  35, 0]) {
     band();
   }
@@ -89,19 +89,19 @@ module bump (
         }
       }
     }
-  
+
     // V in the back
     translate([body_x/2, -1, 10]) {
       rotate([270, 45, 0]) {
         cube([body_x, body_x, body_y+2]);
       }
     }
-    
+
     // Flatten the bottom
     translate([0,0,-20]) {
       cube([body_x, body_y, 20]);
     }
-  }  
+  }
 }
 
 module band () {

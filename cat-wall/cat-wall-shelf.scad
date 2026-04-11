@@ -25,29 +25,29 @@ module shelf(
 
     // Depth is always a calculation
     depth = 150 + 2*thickness;
-    
+
     // Left side
     translate([0, thickness + kerf, 0]) {
         square([thickness, depth - (2*thickness) - (2*kerf)]);
     }
-    
+
     // Right side
     translate([width - thickness, thickness + kerf, 0]) {
         square([thickness, depth - (2*thickness) - (2*kerf)]);
     }
-    
+
     // Top side
     translate([0, depth - thickness, 0]) {
         square([width, thickness]);
     }
-    
+
     difference() {
-        
+
         // Shelf surface
         translate([thickness + kerf, thickness + kerf]) {
             square([width - (2*kerf) - (2*thickness), depth - (2*kerf) - (2*thickness)]);
         }
-        
+
         // Text
         translate([2*thickness, depth - (3*18)]) {
             text(str("A - ", thickness,
@@ -62,25 +62,25 @@ module shelf(
                      " x ", width
             ));
         }
-        
+
         translate([2*thickness, depth - (5*18)]) {
             text(str("C - ",thickness,
                      " x ", depth - (2*thickness),
                      " x ", width - (2*thickness)
             ));
         }
-    
+
         translate([2*thickness, depth - (6*18)]) {
             text(str("D - ",thickness,
                      " x ", (3*thickness),
                      " x ", width
             ));
         }
-        
+
         // Test holes
-        
+
     }
-    
+
 }
 
 shelf();

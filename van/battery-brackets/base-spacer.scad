@@ -20,12 +20,12 @@ hole_screw = 4;
 difference() {
     // Main body
     cube([x, y, z]);
-    
+
     // Bolt hole
     translate([x/2, y/2, 0]) {
         cylinder(h = z*2, d = hole_bolt, center = true, $fn = 50);
     }
-    
+
     // Screw holes
     translate([x/2, x/2, 0]) {
         cylinder(h = z*2, d = hole_screw, center = true, $fn = 50);
@@ -33,5 +33,5 @@ difference() {
     // Screw holes
     translate([x/2, y - (x/2), 0]) {
         cylinder(h = z*2, d = hole_screw, center = true, $fn = 50);
-    }   
+    }
 }

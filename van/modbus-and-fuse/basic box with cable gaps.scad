@@ -46,13 +46,13 @@ difference() {
     }
 
     // Remove cable route above to save on materials
-    translate([20, 20, 0]) {
-        cube([wall_x - 40, rear_gap, base_thickness]);
+    translate([30, 20, 0]) {
+        cube([wall_x - 60, rear_gap, base_thickness]);
     }
 
     // Remove cable route below to save on materials
-    translate([20, wall_y - rear_gap - 20, 0]) {
-        cube([wall_x - 40, rear_gap, base_thickness]);
+    translate([30, wall_y - rear_gap - 20, 0]) {
+        cube([wall_x - 60, rear_gap, base_thickness]);
     }
     // Left side bottom gap
     translate([0, corner, 0]) vgap();
@@ -93,27 +93,27 @@ difference() {
         support(wall_thickness, 72.5);
         support(wall_thickness, gap_offset * 1.6);
         support(wall_thickness, wall_y - wall_thickness - support);
-        
+
         // Middle
         support((wall_x/3), wall_thickness);
         support((wall_x/3), wall_y - wall_thickness - support);
         support(((wall_x/3)*2) - support, wall_thickness);
         support(((wall_x/3)*2) - support, wall_y - wall_thickness - support);
-        
+
         // Right edge
         support(wall_x - wall_thickness - support, wall_thickness);
         support(wall_x - wall_thickness - support, 72.5);
         support(wall_x - wall_thickness - support, gap_offset * 1.6);
         support(wall_x - wall_thickness - support, wall_y - wall_thickness - support);
-        
+
         lid_inset = 10;
-        
+
         // Column and hole for cover screws
         lid_fixing(d = 12, x = lid_inset, y = lid_inset);
         lid_fixing(d = 12, x = lid_inset, y = wall_y - lid_inset);
         lid_fixing(d = 12, x = wall_x - lid_inset, y = wall_y - lid_inset);
         lid_fixing(d = 12, x = wall_x - lid_inset, y = lid_inset);
-        
+
         // Mounting bosses for wall fixing
     }
 
@@ -121,17 +121,17 @@ difference() {
     translate([wall_thickness, wall_thickness, wall_z - wall_thickness]) {
         cube([wall_thickness, wall_y - (wall_thickness*2), wall_thickness]);
     }
-    
+
     // Box lid lip right
     translate([wall_x-(2*wall_thickness), wall_thickness, wall_z - wall_thickness]) {
         cube([wall_thickness, wall_y - (wall_thickness*2), wall_thickness]);
     }
-    
+
     // Box lid lip top
     translate([wall_thickness, wall_y - (2*wall_thickness), wall_z - wall_thickness]) {
         cube([wall_x - (2*wall_thickness), wall_y - (wall_thickness*2), wall_thickness]);
     }
-    
+
     // Box lid lip bottom
     translate([wall_thickness, wall_thickness, wall_z - wall_thickness]) {
         cube([wall_x - (2*wall_thickness), wall_thickness, wall_thickness]);

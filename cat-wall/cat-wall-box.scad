@@ -28,7 +28,7 @@ difference() {
     translate([x_size - thickness, 0, 0]) { side(x_size, y_size, thickness); };
     translate([x_size - thickness, y_size/2, y_size/2]) {
        rotate(a=[0,90,0]) { cylinder(h = thickness * 3, d1 = hole, d2 = hole, center = true); }
-    };    
+    };
 }
 
 // top & bottom
@@ -40,7 +40,7 @@ difference() {
     translate([0, 0, 0]) {front_back(x_size, y_size, thickness);};
     translate([x_size/2, 0, y_size/2]) {
        rotate(a=[90,0,0]) { cylinder(h = thickness * 3, d1 = hole, d2 = hole, center = true); }
-    };    
+    };
 }
 
 // Back
@@ -49,13 +49,13 @@ translate([0, x_size - thickness, 0]) {front_back(x_size, y_size, thickness);};
  module side (x, y, thickness) {
     cube(size = [thickness, y, x]);
  }
- 
+
  module front_back (x, y, thickness) {
      translate([thickness + kerf, 0, 0]) {
          cube(size = [x - (2*thickness) - (2*kerf), thickness, y]);
      }
  }
- 
+
  module top_bottom (x, y, thickness) {
      translate([thickness + kerf, thickness + kerf, 0]) {
          cube(size = [y - (2*thickness) - (2*kerf), x - (2*thickness) - (2*kerf), thickness]);

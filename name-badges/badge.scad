@@ -41,27 +41,27 @@ module name_badge(
     name,
     size
 ) {
-    difference() {    
+    difference() {
         // Main body
         rounded_square([104,102], r=12);
-        
+
         // Holes for lanyard
         translate([badge_x * 0.2, badge_y-9]) { circle(d=5, $fn=50); }
         translate([badge_x * 0.5, badge_y-9]) { circle(d=5, $fn=50); }
         translate([badge_x * 0.8, badge_y-9]) { circle(d=5, $fn=50); }
-        
+
         // Line 1
-        translate([0, line_1_y]) { square([badge_x, 1]); }        
-        
+        translate([0, line_1_y]) { square([badge_x, 1]); }
+
         // Line 2
         translate([0, line_2_y]) { square([badge_x, 1]); }
-    
+
         // Line 3
         translate([0, line_3_y]) { square([badge_x, 1]); }
 
         // Line 4
         translate([0, flag_bottom_y]) { square([badge_x, 1]); }
-        
+
         // Name
         translate([badge_x/2, badge_y/2, 0]) {
             text(
@@ -73,7 +73,7 @@ module name_badge(
             );
         }
 
-    }  
+    }
 }
 
 module rounded_square(s, r=10) {

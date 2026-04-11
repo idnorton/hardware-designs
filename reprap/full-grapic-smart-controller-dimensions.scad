@@ -23,13 +23,13 @@ module reprap_display () {
     translate([90.5, 19, 0]) { circle(d = mounting_holes, $fn=50); }
     translate([2.5, 84, 0]) { circle(d = mounting_holes, $fn=50); }
     translate([90.5, 84, 0]) { circle(d = mounting_holes, $fn=50); }
-    
+
     // Display
     translate([8, 27, 0]) { square([78, 51]); }
 
     // Contrast
     translate([10, 12, 0]) { circle(d = 6, $fn=50); }
-    
+
     // Reset button
     translate([50, 9, 0]) { circle(d = 3, $fn=50); }
 
@@ -39,7 +39,7 @@ module reprap_display () {
 
 
 difference() {
-    
+
     // Overall PCB dimensions
     pcb_x = 93;
     pcb_y = 87;

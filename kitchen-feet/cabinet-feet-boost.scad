@@ -3,7 +3,7 @@
 
 
 Settings for these parts in PrusaSlicer:
-  
+
 ## Print Settings
 
 Select the Print Settings tab and check the following.

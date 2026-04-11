@@ -12,8 +12,7 @@ the two pieces.
 
 ## STL Preview
 
-
-<script src="https://embed.github.com/view/3d/idnorton/hardware-designs/main/bed-bracket/bed-brackets.stl"></script>
+<script type="text/javascript" src="https://embed.github.com/view/3d/idnorton/hardware-designs/main/bed-bracket/bed-brackets.stl"></script>
 
 
 ![STL example in markdown.](bed-brackets.stl)

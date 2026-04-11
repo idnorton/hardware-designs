@@ -44,7 +44,7 @@ module boss() {
     difference() {
         h = 13;
         insert = 5.6;
-        
+
         cylinder(h = h, d = boss, $fn = 50);     // Body of the boss
         translate([0, 0, h - z]) cylinder(h = z, d = 8.5, $fn = 50); // Insert in the top
         cylinder(h = h, d = insert, $fn = 50); // Hole for the heat press insert

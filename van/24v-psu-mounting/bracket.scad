@@ -33,17 +33,17 @@ inset = (x - hole_x) / 2;
 
 difference() {
     cube([x, frame, 5]);
-        
+
     translate([(x/2) - (hole_x/2), frame/2, 0]) {
         cylinder(h = 5, d = hole, $fn = 50);
         cylinder(h = bolt_head_z, d = bolt_head_d, $fn = 50);
     }
-    
+
     translate([(x/2) + (hole_x/2), frame/2, 0]) {
         cylinder(h = 5, d = hole, $fn = 50);
-        cylinder(h = bolt_head_z, d = bolt_head_d, $fn = 50);        
+        cylinder(h = bolt_head_z, d = bolt_head_d, $fn = 50);
     }
-    
+
     translate([frame/2, frame/2, 0]) {
         cylinder(h = 5, d = hole, $fn = 50);
     }

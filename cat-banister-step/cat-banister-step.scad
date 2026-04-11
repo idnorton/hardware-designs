@@ -1,5 +1,5 @@
 /*
-  
+
 Cat step for banister gaps to prevent cats getting trapped in V shaped groove
 @idnorton
 2022-12-27
@@ -18,7 +18,7 @@ difference() {
         height = 36,
         center = false,
         $fn = 100) {
-            
+
             // Triangle wedge
             polygon(points = [
                 [0, 0],
@@ -31,7 +31,7 @@ difference() {
     translate([0,0,4]) {
         cube(size = [30,5,28], center = false);
     }
-    
+
     // Screw through hole
     translate([0,18,18]) {
         rotate([0, 90, 0]) {
@@ -43,7 +43,7 @@ difference() {
             );
         }
     }
-    
+
     // Countersink for screw head
     translate([0,18,18]) {
         rotate([0, 90, 0]) {

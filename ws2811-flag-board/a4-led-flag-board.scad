@@ -31,12 +31,12 @@ difference() {
 
     // Main body
     square([x_board, y_board]);
-    
+
     for ( x = [ x_grid/2 : x_grid : x_board ] ) {
         for ( y = [ y_grid/2 : y_grid : y_board ] ) {
             // Hole
             translate([x,y,0]) { circle(d=hole, $fn=50); }
         }
     }
-  
+
 }

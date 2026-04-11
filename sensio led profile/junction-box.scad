@@ -47,12 +47,12 @@ for(i = [-y : y + 2*thickness : y * 3]) {
 module box() {
     difference() {
         cube([x, y, z]);
-    
+
         // Hollow out the inside
         translate([thickness, thickness, thickness]) {
             cube([x - (2*thickness), y - (2 * thickness), z - (2 * thickness)]);
         }
-    
+
         // Hole for extrusion
         translate([x - thickness, thickness, z - thickness]) {
             rotate([0,90,0]) {
@@ -67,7 +67,7 @@ module box() {
             }
         }
     }
-    
+
     // End stop for profile, 5mm in from the edge
     translate([x - 10, 0, z - 5]) {
         cube(5);
@@ -80,17 +80,17 @@ module fixings() {
         translate([-y, 0, 0]) {
             cube([x + (y * 2), y, thickness]);
         }
-    
+
         // Fixed point mounting hole
         translate([-y/2, y/2, 0]) {
             cylinder(h = thickness + 2, d = screw, $fn = 50);
         }
-    
+
         // Mounting hole profile side
         translate([x + (y/2), y/2, 0]) {
             cylinder(h = 10, d = screw, $fn = 50);
         }
-    
+
         // Slot profile side
         translate([x + (y/2), y/2 - (screw/2), 0]) {
             cube([x, screw, thickness + 2]);
@@ -108,7 +108,7 @@ module quadrant() {
 module support() {
     // Base
     cube([y, y, thickness]);
-    
+
     difference() {
         // Back
         cube([y, (y - thickness - d/2), z]);
@@ -119,20 +119,20 @@ module support() {
                 cylinder(h = 3 * thickness, d = screw, $fn = 50);
             }
         }
-   
+
         // Screw head recess
         translate([y/2, (y - thickness - d/2 - (2 * thickness)), z/2]) {
             rotate([270, 0, 0]) {
                 cylinder(h = 3 * thickness, d = 2 * screw, $fn = 50);
             }
-        }    
+        }
     }
-        
+
     // Front lip
     translate([0, y - thickness, 0]) {
         cube([y, thickness, 2 * thickness]);
     }
-    
+
     // Top lip
     translate([0, y - thickness - d/2, z - thickness]) {
         cube([y, thickness, thickness]);

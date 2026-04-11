@@ -30,10 +30,10 @@ wall_y = max(fuse_y, modbus_y) + (2 * cable_border) + (2 * wall_thickness);
 wall_z = 5;
 
 difference() {
-    
+
     // Exterior body
     cube([wall_x, wall_y, wall_z]);
-    
+
     // Hollow out the main body
     translate([
       wall_thickness,
@@ -43,9 +43,9 @@ difference() {
       cube([
         wall_x - (2 * wall_thickness),
         wall_y - (2 * wall_thickness),
-        wall_z - wall_thickness]);  
+        wall_z - wall_thickness]);
     }
-    
+
     // Fuse box outline and mounting holes
     translate([
         wall_thickness + cable_border,
@@ -54,7 +54,7 @@ difference() {
     ]) {
         fusebox();
     }
-    
+
     // Modbus mounting holes
     translate([
         wall_thickness + (2 * cable_border) + fuse_x,
@@ -63,7 +63,7 @@ difference() {
     ]) {
         modbus();
     }
-    
+
     // Cable cutouts above
     translate([wall_thickness + cable_border, wall_y - cable_border, 0]) {
         cube([fuse_x, cable_border - 4, (wall_thickness * 2)]);
@@ -81,7 +81,7 @@ difference() {
     translate([wall_thickness + (2 * cable_border) + fuse_x, wall_thickness + 2, 0]) {
         cube([modbus_x, cable_border - 4, (wall_thickness * 2)]);
     }
-    
+
     // Mounting points
    translate([10, 10, 0]) { countersink(); }
    translate([wall_x - 10, 10, 0]) { countersink(); }
@@ -111,14 +111,14 @@ module countersink(
     ){
     cylinder(h = depth, d1 = d1, d2 = d2, center = true, $fn = 50);
 }
-    
+
 module modbus() {
     // PCB outline
     cube([modbus_x, modbus_y, wall_thickness]);
-    
-    // Mounting holes    
+
+    // Mounting holes
     translate([3, 3, 0]) { hole(d=3); } // Bottom left
     translate([modbus_x - 3, 3, 0]) { hole(d=3); } // Bottom right
     translate([3, modbus_y - 3, 0]) { hole(d=3); } // Top left
-    translate([modbus_x - 3, modbus_y - 3, 0]) { hole(d=3); } // Top right  
+    translate([modbus_x - 3, modbus_y - 3, 0]) { hole(d=3); } // Top right
 }

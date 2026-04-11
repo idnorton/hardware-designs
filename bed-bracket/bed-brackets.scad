@@ -1,5 +1,5 @@
 /*
-  
+
 Bed repair brackets for Alex
 @idnorton
 2024-12-26
@@ -25,24 +25,24 @@ hole = 8;
 spacing = 75;
 
 difference() {
-    
+
   // Cuboid
   cube([plate_x, plate_y, plate_z]);
-    
+
   translate([plate_x/2, 0, plate_z]) {
-    rotate([270, 0, 0]) {  
+    rotate([270, 0, 0]) {
       cylinder(h = plate_y, d = bedpost, $fn = 100);
     }
   }
-  
+
   // Offset from bottom and top
   offset = (plate_y - spacing)/2;
-  
+
   translate([plate_x/2, offset, 0]) {
     cylinder(h = plate_z, d = hole, $fn = 50);
   }
 
   translate([plate_x/2, plate_y - offset, 0]) {
     cylinder(h = plate_z, d = hole, $fn = 50);
-  }  
+  }
 }

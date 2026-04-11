@@ -33,7 +33,7 @@ insulator_groove_inset = 2;
 // Busbar
 difference() {
     translate([0-(busbar_x/2), 0-(busbar_y/2), 0-(busbar_z/2)]) { cube([busbar_x, busbar_y, busbar_z]); }
-    
+
     // Bolt hole
     //translate([0, 0, (busbar_z/2)]) { cylinder(h = busbar_z*2, d=8.8, center=true, $fn=200); }
 }
@@ -49,26 +49,26 @@ difference() {
     translate([0-(insulator_x/2), busbar_y/2, 0-(insulator_z/2)]) {
         cube([insulator_x, insulator_y, insulator_z]);
     }
-    
+
     // Top groove
     translate([0-(insulator_x/2), busbar_y/2 + insulator_groove_inset, (insulator_z/2) - insulator_groove_y]) {
         cube([insulator_x, insulator_groove_y, insulator_groove_y]);
     }
-    
+
     // Bottom groove
     translate([0-(insulator_x/2), busbar_y/2 + insulator_groove_inset, 0-(insulator_z/2)]) {
         cube([insulator_x, insulator_groove_y, insulator_groove_y]);
     }
-    
+
     // Left groove
     translate([0-(insulator_x/2), busbar_y/2 + insulator_groove_inset, 0-(insulator_z/2)]) {
         cube([insulator_groove_y, insulator_groove_y, insulator_groove_z*2]);
     }
-    
+
     // Right groove
     translate([insulator_x/2-insulator_groove_y, busbar_y/2 + insulator_groove_inset, 0-(insulator_z/2)]) {
         cube([insulator_groove_y, insulator_groove_y, insulator_groove_z*2]);
-    }    
-    
-    
+    }
+
+
 }

@@ -25,12 +25,12 @@ difference() {
 
     // Main body
     square([board_width, board_thickness * 3]);
-    
+
     for ( x = [ 25 : grid : board_width ] ) {
         // Hole
         translate([x, 2 * board_thickness ,0]) {
             circle(d=hole, $fn=50);
         }
     }
-  
+
 }

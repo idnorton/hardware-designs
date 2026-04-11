@@ -1,0 +1,21 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks.git
+  rev: v5.0.0
+  hooks:
+    - id: end-of-file-fixer
+      types: [file, text]
+    - id: trailing-whitespace
+      types: [file, text]
+    - id: check-case-conflict
+    - id: check-json
+      types: [file]
+      files: \.(json)$
+    - id: pretty-format-json
+      args: ['--no-sort-keys', '--autofix']
+      types: [file]
+      files: \.(json)$
+    - id: check-merge-conflict
+    - id: detect-private-key
+
+#    - id: no-commit-to-branch
+#      args: ['--branch', 'develop', '--branch', 'main']

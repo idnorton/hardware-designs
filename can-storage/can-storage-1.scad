@@ -19,10 +19,10 @@ dowel_inset = 30;
 
 ramp_thickness = 6;
 
-difference() {    
+difference() {
     // Main body
     rounded_square([storage_x, storage_y], r=dowel_diameter);
-    
+
     // Dowels in the corners
     translate([dowel_inset, dowel_inset]) { circle(d=dowel_diameter, $fn=50); }
     translate([storage_x - dowel_inset, dowel_inset]) { circle(d=dowel_diameter, $fn=50); }
@@ -50,7 +50,7 @@ difference() {
             paths=[[0,1,2,3]]
         );
     }
-    
+
     // Vertical ramp
     translate([storage_x - 45, 55]) {
         polygon([
@@ -63,7 +63,7 @@ difference() {
     }
 
 
-        
+
 }
 
 module rounded_square(s, r=10) {
@@ -73,4 +73,3 @@ module rounded_square(s, r=10) {
     circle(r=r, $fn=50);
   }
 }
-

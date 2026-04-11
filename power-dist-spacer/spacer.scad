@@ -21,15 +21,15 @@ holes = 6;
 
 difference() {
     rounded_cube([x, y, z], r=10);
-    
+
     translate([hole_x, hole_y, 0]) { hole(); }
     translate([x-hole_x, y-hole_y, 0]) { hole(); }
-    
+
     indent = 25.5;
-    
+
     // Holes on the y axis centre line
     translate([indent, y/2, 0]) { hole(); }
-    translate([x - indent, y/2, 0]) { hole(); }    
+    translate([x - indent, y/2, 0]) { hole(); }
 }
 
 module hole() {

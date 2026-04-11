@@ -41,7 +41,7 @@ for ( i = [ 0 : 1 : boxes_high ] ) {
 }
 
 module shelf () {
-    
+
     // bottom of shelf
     cube([
         (thickness + (boxes_wide * (x_box + thickness))),
@@ -49,13 +49,13 @@ module shelf () {
         thickness
     ]);
 
-    
+
     for ( i = [ 0 : 1 : boxes_wide ] ) {
-        
+
         x = (i * (x_box + thickness));
         //echo("Vertical position:");
         //echo(x);
-        
+
         // Vertical front to back
         translate([
             x,
@@ -69,13 +69,13 @@ module shelf () {
             ]);
         }
     }
-    
+
     for ( i = [ 0 : 1 : boxes_wide - 1 ] ) {
-        
+
         x = thickness + kerf + (i * (x_box + thickness));
         //echo("Back panel position: ");
         //echo(x);
-        
+
         // Back panel
         translate([
             x,
@@ -105,4 +105,3 @@ module top_bottom (x, y, thickness) {
         cube(size = [x, y, thickness]);
     }
 }
-

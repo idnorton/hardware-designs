@@ -27,7 +27,7 @@ difference() {
     cylinder(h=55, d1=d2-2, d2=d2-2, $fn=200);
 
     translate([0, 0, 15]) {
-        // Narrow inner lip for 
+        // Narrow inner lip for
         cylinder(h=40, d1=d2-0.2, d2=d2, $fn=200);
     }
 }

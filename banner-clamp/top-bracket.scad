@@ -1,5 +1,5 @@
 /*
-  
+
 Banner mounting bracket for poles
 @idnorton
 2022-06-22
@@ -35,18 +35,18 @@ module body_top () {
                     cylinder(body_y,d=body_x, $fn=100);
                 }
             }
-            
+
             // Top boss for spring
             translate([body_x/2, body_y*0.65, 0]) {
                 cylinder(body_z+20,d1=bolt_diameter+30,d2=bolt_diameter+6,$fn=100);
             }
-            
+
             // Bottom boss for banner pole
             translate([body_x/2, body_y*0.35, 10]) {
                 cylinder(h=50, d1=body_x-1, d2=body_z, $fn=100);
-            }            
+            }
         }
-    
+
         // Flatten the bottom
         translate([0,0,-20]) {
             cube([body_x, body_y, 20]);
@@ -58,7 +58,7 @@ module body_top () {
                 cube([body_x/2, body_x/2, body_y]);
             }
         }
-        
+
         // Hole for bolt
         translate([body_x/2, body_y*0.65, 0]) {
             cylinder(body_z + 100,d=bolt_diameter, $fn=100);
@@ -67,8 +67,8 @@ module body_top () {
         // Hole for banner pole
         translate([body_x/2, body_y*0.35, 22]) {
             cylinder(h=60,d=pole_diameter, $fn=100);
-        }  
-    }   
+        }
+    }
 }
 
 body_top();

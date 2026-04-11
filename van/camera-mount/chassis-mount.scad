@@ -32,7 +32,7 @@ difference() {
         translate([0 - (bracket_width/2), 0, 0]) {
             cube([bracket_width, post_width, bracket_thickness]);
         }
-    
+
         translate([0 - (bracket_width/2), 0, bracket_thickness/2]) {
             rotate([270, 0, 0]) cylinder(h = post_width, d = bracket_thickness);
         }
@@ -45,7 +45,7 @@ difference() {
     translate([(bracket_width/2), 0, bracket_thickness/2]) {
         rotate([270, 0, 0]) cylinder(h = post_width, d = bracket_d);
     }
-    
+
     translate([0 - (bracket_width/2), 0, bracket_thickness/2]) {
         rotate([270, 0, 0]) cylinder(h = post_width, d = bracket_d);
     }
@@ -70,13 +70,13 @@ module post() {
                 }
             }
         }
-        
+
         translate([0, bracket_height, bracket_thickness/2]) {
             rotate([0, 90, 0]) {
                 cylinder(h = (bracket_thickness * 2), d = bracket_d, center = true);
             }
         }
     }
-    
+
 
 }

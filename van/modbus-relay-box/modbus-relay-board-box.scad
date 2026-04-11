@@ -40,7 +40,7 @@ difference() {
             box_z
         ]);
     }
-    
+
     // Save time and filament by chopping a chunk out of the back
     translate([12, 5, 0]) {
         cube([box_x-(2*12), box_y-(2*5), 2*wall]);

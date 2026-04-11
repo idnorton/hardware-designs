@@ -32,7 +32,7 @@ difference() {
 
     // Main body
     square([x_board, y_board]);
-    
+
     // Captive nut mounting holes
     for ( x = [ x_grid_offset : grid : x_board ] ) {
         for ( y = [ y_grid_offset : grid : y_board ] ) {
@@ -40,7 +40,7 @@ difference() {
             translate([x,y,0]) { circle(d=hole, $fn=50); }
         }
     }
-    
+
     // Board mounting holes
-    
+
 }
