@@ -10,8 +10,9 @@ See https://creativecommons.org/licenses/by-nc/3.0/
 Specifically you may not sell the design or products using the design.
 You're welcome to use the design to build things for your own use :)
 
-Perimiters: 4
+Perimiters: 6
 Seam position: Random
+Infill: 30%
 
 **/
 
@@ -30,7 +31,7 @@ insulator_groove_y = 3;
 insulator_groove_z = 12;
 insulator_groove_inset = 2;
 
-case_base = 6;
+case_base = 8;
 case_thickness = 2;
 case_x = insulator_x + (2*case_thickness);
 case_y = 70;
@@ -40,7 +41,7 @@ case_z = 10;
 bolt_head = 15;
 bolt_washer = 16;
 
-cabletie_x = 3;
+cabletie_x = 2;
 cabletie_y = 6;
 
 cable_entry = 18;
@@ -59,10 +60,9 @@ difference() {
         cube([busbar_x, case_y, busbar_z*2]);
     }
 
-
     // Cable entry
-    translate([case_x/2, 0, (cable_entry/2)+case_base]) {
-        rotate([90, 0, 0]) { cylinder(h = case_thickness*4, d = cable_entry, center = true, $fn=100);
+    translate([case_x/2, 0, 12]) {
+        rotate([90, 0, 0]) { cylinder(h = 66, d = cable_entry, center = true, $fn=100);
     }}
 
     // Bolt head
@@ -75,28 +75,28 @@ difference() {
         cylinder(h = 2, d = bolt_washer, center = true, $fn=100);
     }
 
-    // Top cabletie hole
+    // Top cable tie hole
     translate([case_thickness*3, case_thickness* 2, 0]) {
         cube([cabletie_x, cabletie_y, case_base + case_thickness]);
     }
 
-    // Bottom cabletie hole
+    // Bottom cable tie hole
     translate([case_x - (case_thickness*3) - cabletie_x, case_thickness* 2, 0]) {
         cube([cabletie_x, cabletie_y, case_base + case_thickness]);
     }
 
-    // Cabletie channel on bottom
+    // Cable tie channel on bottom
     translate([case_thickness*3, case_thickness* 2, 0]) {
         cube([case_x - (case_thickness*6), cabletie_y, cabletie_x]);
     }
 }
 
-// Tabs above busbar
+// Tabs above busbar left
 translate([0, case_y - insulator_y - 6, (case_z+case_base) - case_thickness]) {
     cube([7, 6, case_thickness]);
 }
 
-// Tabs above busbar
+// Tabs above busbar right
 translate([case_x - 7, case_y - insulator_y - 6, (case_z+case_base) - case_thickness]) {
     cube([7, 6, case_thickness]);
 }
