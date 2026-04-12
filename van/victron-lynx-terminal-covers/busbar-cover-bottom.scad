@@ -36,7 +36,6 @@ case_thickness = 2;
 case_x = insulator_x + (2*case_thickness);
 case_y = 70;
 case_z = 10;
-//case_z = 3;
 
 bolt_head = 15;
 bolt_washer = 16;
@@ -45,6 +44,7 @@ cabletie_x = 2;
 cabletie_y = 6;
 
 cable_entry = 18;
+cable_crimp_groove = 66;
 
 difference() {
     // Main external body
@@ -62,8 +62,10 @@ difference() {
 
     // Cable entry
     translate([case_x/2, 0, 12]) {
-        rotate([90, 0, 0]) { cylinder(h = 66, d = cable_entry, center = true, $fn=100);
-    }}
+        rotate([90, 0, 0]) {
+           cylinder(h = cable_crimp_groove, d = cable_entry, center = true, $fn=100);
+        }
+    }
 
     // Bolt head
     translate([case_x/2, case_y - 25, case_base/2]) {
