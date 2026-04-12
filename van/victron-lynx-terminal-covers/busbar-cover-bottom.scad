@@ -94,11 +94,11 @@ difference() {
 }
 
 // Tabs above busbar left
-translate([0, case_y - insulator_y - 6, (case_z+case_base) - case_thickness]) {
-    cube([7, 6, case_thickness]);
+translate([0, case_y - insulator_y - busbar_y, (case_z+case_base) - case_thickness]) {
+    cube([7, busbar_y, case_thickness]);
 }
 
 // Tabs above busbar right
-translate([case_x - 7, case_y - insulator_y - 6, (case_z+case_base) - case_thickness]) {
-    cube([7, 6, case_thickness]);
+translate([case_x - 7, case_y - insulator_y - busbar_y, (case_z+case_base) - case_thickness]) {
+    cube([7, busbar_y, case_thickness]);
 }
